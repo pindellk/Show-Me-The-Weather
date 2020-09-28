@@ -1,0 +1,22 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  }
+
+body {
+  text-align: left;
+}
+
+.container {
+  width: 75%;
+  float: right;
+  color: black;
+}
+
+.search-card {
+  width: 25%;
+  position: relative;
+  float: left;
+  color: rgb(99, 98, 98);
+}
+
+
