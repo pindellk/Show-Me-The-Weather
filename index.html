@@ -22,12 +22,12 @@
         <!-- Today's results -->
         <section class="container">
             <div class="row result">
-                <div class="card w-100 mt-2 ml-3 pl-3 pr-3 pb-5">
+                <div id="current-card" class="card w-100 mt-2 ml-3 pl-3 pr-3 pb-5">
                     <h2 id="city-date"><i id="weather-icon"></i></h2>
-                    <p id="temperature">Temperature:</p>
-                    <p id="humidity">Humidity:</p>
-                    <p id="wind-speed">Wind Speed:</p>
-                    <p id="uv">UV Index:</p>
+                    <p id="temperature"></p>
+                    <p id="humidity"></p>
+                    <p id="wind-speed"></p>
+                    <p id="description"></p>
                 </div>
             </div>
 
@@ -42,40 +42,40 @@
                     <div class="card-body rounded text-light bg-primary">
                         <h5 id="future-1" class="card-title"></h5>
                         <i id="future-icon-1"></i>
-                        <p id="future-temp">Temp:</p>
-                        <p id="future-hum">Humidity:</p>
+                        <p id="future-temp"></p>
+                        <p id="future-hum"></p>
                     </div>
                 </div>
                 <div class="col-20 pt-1 pb-1 pl-3 pr-3">
                     <div class="card-body rounded text-light bg-primary">
                         <h5 id="future-2" class="card-title"></h5>
                         <i id="future-icon-2"></i>
-                        <p id="future-temp">Temp:</p>
-                        <p id="future-hum">Humidity:</p>
+                        <p id="future-temp"></p>
+                        <p id="future-hum"></p>
                     </div>
                 </div>
                 <div class="col-20 pt-1 pb-1 pl-3 pr-3">
                     <div class="card-body rounded text-light bg-primary">
                         <h5 id="future-3" class="card-title"></h5>
                         <i id="future-icon-3"></i>
-                        <p id="future-temp">Temp:</p>
-                        <p id="future-hum">Humidity:</p>
+                        <p id="future-temp"></p>
+                        <p id="future-hum"></p>
                     </div>
                 </div>
                 <div class="col-20 pt-1 pb-1 pl-3 pr-3">
                     <div class="card-body rounded text-light bg-primary">
                         <h5 id="future-4" class="card-title"></h5>
                         <i id="future-icon-4"></i>
-                        <p id="future-temp">Temp:</p>
-                        <p id="future-hum">Humidity:</p>
+                        <p id="future-temp"></p>
+                        <p id="future-hum"></p>
                     </div>
                 </div>
                 <div class="col-20 pt-1 pb-1 pl-3 pr-3">
                     <div class="card-body rounded text-light bg-primary">
                         <h5 id="future-5" class="card-title"></h5>
                         <i id="future-icon-5"></i>
-                        <p id="future-temp">Temp:</p>
-                        <p id="future-hum">Humidity:</p>
+                        <p id="future-temp"></p>
+                        <p id="future-hum"></p>
                     </div>
                 </div>
             </div>
@@ -85,9 +85,9 @@
         <aside>
             <div class="pl-3 pr-3 pb-5 bg-light search-card">
                 <h5>Search for a City:</h5>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search">
-                    <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                <form class="form-list-group-item">
+                    <input id="city-input" class="form-control mr-sm-2">
+                    <button id="find-city" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                 </form>
                 <br>
                 <ul class="list-group">
