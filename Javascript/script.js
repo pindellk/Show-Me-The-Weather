@@ -1,16 +1,16 @@
 // TO DO
-// 1. Set default data
-// 2. One city title at a time - don't add name
-// 3. Get icons
-// 4. Streamline so that forecast data is looped
-// 5. Link city searches
+// Get icons
+// Streamline so that forecast data is looped
+// Link city searches
+// Local storage
 
 // Current: https://api.openweathermap.org/data/2.5/weather?q=atlanta&appid=0b58d2e4fda20e7f139806a12aba40d1
 // Forecast: https://api.openweathermap.org/data/2.5/forecast?q=atlanta&appid=0b58d2e4fda20e7f139806a12aba40d1
 
 // Current day variables
-var cityDate = $("#city-date");
+var cityDate = $("#date");
 var currentDay = moment().format('l');
+var cityName = $("#city-name")
 var icon = $("#weather-icon"); // NEED TO GRAB ICON
 var temp = $("#temperature");
 var humidity = $("#humidity");
@@ -26,37 +26,34 @@ var day5 = $("#future-5");
 
 // Get and display current date
 cityDate.text(currentDay);
-$("#current-card").prepend(cityDate);
 
-// Search button on-click event
-$("#find-city").on("click", function (event) {
-    event.preventDefault();
+// Set default city
+getCityWeather("Baltimore");
 
-    var city = $("#city-input").val().trim();
+function getCityWeather(city) {
     var APIKey = "&APPID=0b58d2e4fda20e7f139806a12aba40d1";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
         city + "&units=imperial" + APIKey;
     var queryFutureURL = "https://api.openweathermap.org/data/2.5/forecast?q=" +
         city + "&units=imperial" + APIKey;
 
-    // Get and display city search  - CLEAR PREVIOUS RESULTS?
-    cityDate.prepend(city + " ");
-    $("#current-card").append(+cityDate);
+    // Get and display city search
+    cityName.text(city);
 
-    // Get current data
+    // Get current weather 
     $.ajax({
         url: queryURL,
         method: "GET"
     })
         .then(function (response) {
-            icon.text(response.weather.icon);  // FIGURE OUT
+            // icon.attr("src", "https://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png");
             temp.text("Temperature: " + response.main.temp.toFixed(1) + " °F");
             humidity.text("Humidity: " + response.main.humidity + "%");
             wind.text("Wind Speed: " + response.wind.speed + " MPH");
             description.text("Description: " + response.weather[0].description);
         });
 
-    // Get forecast data
+    // Get forecast weather
     $.ajax({
         url: queryFutureURL,
         method: "GET"
@@ -97,6 +94,12 @@ $("#find-city").on("click", function (event) {
             // icon.text(response.weather[0].icon);;  // FIGURE OUT
             $("#future-temp-5").text("Temp: " + response.list[32].main.temp.toFixed(1) + " °F");
             $("#future-hum-5").text("Humidity: " + response.list[32].main.humidity + "%");
-
         });
+}
+
+// Search button on-click event
+$("#find-city").on("click", function (event) {
+    event.preventDefault();
+    var city = $("#city-input").val().trim();
+    getCityWeather(city);
 });
