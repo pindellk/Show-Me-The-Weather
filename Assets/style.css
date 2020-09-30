@@ -6,6 +6,14 @@ body {
   text-align: left;
 }
 
+p {
+  font-size: 14px;
+}
+
+h5 {
+  font-weight: bold;
+}
+
 .container {
   width: 75%;
   float: right;
