@@ -20,6 +20,10 @@ h5 {
   color: black;
 }
 
+.current {
+  font-size: 24px;
+}
+
 .search-card {
   width: 25%;
   position: relative;
