@@ -26,8 +26,8 @@ var day5 = $("#future-5");
 // Get and display current date
 cityDate.text(currentDay);
 
-// Set default city
-getCityWeather("Baltimore");
+// Set default value OR pull last search from local storage
+getCityWeather(localStorage.getItem("city") || "Baltimore");
 
 function getCityWeather(city) {
     var APIKey = "&APPID=0b58d2e4fda20e7f139806a12aba40d1";
@@ -101,10 +101,16 @@ $("#find-city").on("click", function (event) {
     event.preventDefault();
     var city = $("#city-input").val().trim();
     getCityWeather(city);
+
+    localStorage.setItem("city", city);
 });
 
 // Top city list on-click event
 $(".top-city").click(function (event) {
     event.preventDefault();
-    getCityWeather(event.target.textContent);
+    var city = event.target.textContent;
+    getCityWeather(city);
+
+    localStorage.setItem("city", city);
 });
+
