@@ -1,10 +1,6 @@
 // TO DO
 // Get icons
 // Streamline so that forecast data is looped
-// Local storage
-
-// Current: https://api.openweathermap.org/data/2.5/weather?q=atlanta&appid=0b58d2e4fda20e7f139806a12aba40d1
-// Forecast: https://api.openweathermap.org/data/2.5/forecast?q=atlanta&appid=0b58d2e4fda20e7f139806a12aba40d1
 
 // Current day variables
 var cityDate = $("#date");
@@ -100,6 +96,7 @@ function getCityWeather(city) {
 $("#find-city").on("click", function (event) {
     event.preventDefault();
     var city = $("#city-input").val().trim();
+    if (city === "") return;
     getCityWeather(city);
 
     localStorage.setItem("city", city);
